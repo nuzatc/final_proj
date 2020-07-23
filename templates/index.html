@@ -1,15 +1,14 @@
 <html>
     <head>
-        <title>Community Events Board</title>
+        <title> Welcome! </title>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
     </head>
     <body>
-      <h1>Community Events Board</h1>
-      <div class="event-list">
-        <ul>
-          {% for event in events %}
-            <li>{{ event.event }} - {{ event.date }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+        <h1> Find Your Respresentatives</h1>
+        <p> Type in your address </p>
+        <form method="post" action="/">
+            <input type="text" name="addy"/>
+            <input type="submit" value="Submit"/>
+        </form>
     </body>
 </html>
