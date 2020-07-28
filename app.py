@@ -5,6 +5,7 @@ from flask import render_template
 from flask import request
 from flask_pymongo import PyMongo
 import os 
+import requests 
 
 # from flask_pymongo import PyMongo
 # -- Initialization section --
@@ -94,3 +95,11 @@ def politicianPage(collection, politician):
 
 
 
+
+@app.route('/yourgif', methods = ["GET", "POST"])
+def yourgif():
+    # need to store user import 
+    user_data= request.form["gifchoice"]
+    print (user_data)
+    link = getImageUrlFrom(user_data)
+    return render_template('yourgif.html', link=link)
