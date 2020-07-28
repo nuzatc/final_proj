@@ -28,7 +28,7 @@ print(image)
 
 
 # # this will search and download:
-gis.search(search_params=_search_params, path_to_dir='/static/images')
+# gis.search(search_params=_search_params, path_to_dir='/static/images')
 
 # # this will search, download and resize:
 # gis.search(search_params=_search_params, path_to_dir='/path/', width=500, height=500)
