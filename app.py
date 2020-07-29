@@ -6,6 +6,7 @@ from flask import request
 from flask_pymongo import PyMongo
 import os 
 import requests 
+from datetime import datetime
 
 # from flask_pymongo import PyMongo
 # -- Initialization section --
@@ -25,8 +26,13 @@ mayor = mongo.db.mayor
 # INDEX
  # --- HOMEPAGE WITH A FORM TO SUBMIT A ZIPCODE
 @app.route('/')
-@app.route('/index')
-def index():
+
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/reps')
+def reps():
     #step1 connect to database
     hor1 = mongo.db.hor
     senate1 = mongo.db.senate
@@ -40,7 +46,7 @@ def index():
     print(govs)
 
     #step3 return render template
-    return render_template('index.html', hors = hors, senates = senates, govs = govs)
+    return render_template('reps.html', hors = hors, senates = senates, govs = govs)
 
 @app.route('/yourRepresentatives', methods = ["GET", "POST"])
 def yourRepresentatives():
@@ -55,7 +61,7 @@ def yourRepresentatives():
         senate1 = mongo.db.senate
         gov1 = mongo.db.gov
         #3 query mongo zipcodes that match user input
-        horss = list(hor1.find({"district": user_district}))[0]
+        horss = list(hor1.find({"district": int(user_district)}))[0]
         senatess = list(senate1.find({}))[0]
         senatesss = list(senate1.find({}))[1]
         govss = list(gov1.find({}))[0]
@@ -63,7 +69,7 @@ def yourRepresentatives():
         print(senatess)
         print(govss)
         #4 print mongo query
-        return render_template('yourRepresentatives.html', horss = horss, senatess = senatess, govss = govss, senatesss = senatesss)
+        return render_template('yourRepresentatives.html', horss = horss, senatess = senatess, govss = govss, senatesss = senatesss, time= datetime.now())
     else:
         return "hello hello"
 
@@ -74,17 +80,29 @@ def politicianPage(collection, politician):
         poli1 = mongo.db.hor
         poli = list(poli1.find({"name": politician}))[0]
         print(poli)
-        return render_template('SpecificRepresentative.html', poli = poli)
+        return render_template('SpecificRepresentative.html', poli = poli, time= datetime.now())
     elif collection == "senate":
         poli1 = mongo.db.senate
         poli = list(poli1.find({"name": politician}))[0]
         print(poli)
-        return render_template('SpecificRepresentative.html', poli = poli)
+        return render_template('SpecificRepresentative.html', poli = poli, time= datetime.now())
     elif collection == "gov":
         poli1 = mongo.db.gov
         poli = list(poli1.find({"name": politician}))[0]
         print(poli)
-        return render_template('SpecificRepresentative.html', poli = poli)
+        return render_template('SpecificRepresentative.html', poli = poli, time= datetime.now())
+
+@app.route('/AllRepresentatives')
+def AllRepresentatives():
+    hor1 = mongo.db.hor
+    senate1 = mongo.db.senate
+    gov1 = mongo.db.gov
+    hor2 = list(hor1.find({}).sort("district", 1))
+    senate2 = list(senate1.find({}))
+    gov2 = list(gov1.find({}))
+    print(hor2)
+    return render_template('AllRepresentatives.html', hor2 = hor2, senate2 = senate2, gov2 = gov2, hor1=hor1, senate1=senate1, gov1 = gov1, time= datetime.now())
+    
 # CONNECT TO DB, ADD DATA
 # @app.route('/add')
 # def add():
@@ -95,11 +113,3 @@ def politicianPage(collection, politician):
 
 
 
-
-@app.route('/yourgif', methods = ["GET", "POST"])
-def yourgif():
-    # need to store user import 
-    user_data= request.form["gifchoice"]
-    print (user_data)
-    link = getImageUrlFrom(user_data)
-    return render_template('yourgif.html', link=link)

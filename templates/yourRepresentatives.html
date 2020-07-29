@@ -1,61 +1,156 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title> Welcome! </title>
+        <title> Your Representatives </title>
         <link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
     </head>
     <body>
-        <h1> These are your representatives! </h1>
+        <!-- Navigation Bar  -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class = "navbar-brand" href="/home">
+                <img src="https://cdn3.iconfinder.com/data/icons/election-world-1/64/senate-congress-government-senator-political-512.png" width = "50" height = "50"
+                class="d-inline-block align-top" alt>
+            </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/home"> Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reps">Find Your Representatives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/AllRepresentatives">All NY Representatives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/AllRepresentatives">About Us</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    <!-- REPS -->
+        <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="text-center">
+				These Are Your Representatives!
+			</h3>
+            <br> <br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h3 class="text-center">
+				House of Representatives
+			</h3>
+		</div>
+		<div class="col-md-4">
+			<h3 class="text-center">
+				Senators
+			</h3>
+		</div>
+		<div class="col-md-4">
+			<h3 class="text-center">
+				Governor
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card bg-default">
+				<h5 class="card-header">
+					{{horss.name}}
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Learn More About Your Representative Below!
+					</p>
+				</div>
+				<div class="card-footer">
+					<a href="/YourRepresentatives/hor/{{horss.name}}">Additional Information</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					{{senatess.name}}
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Learn More About Your Representative Below!
+					</p>
+				</div>
+				<div class="card-footer">
+					<a href="/YourRepresentatives/senate/{{senatess.name}}">Additional Information</a>
+				</div>
+			</div>
+            <br>
+			<div class="card">
+				<h5 class="card-header">
+					{{senatesss.name}}
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Learn More About Your Representative Below!
+					</p>
+				</div>
+				<div class="card-footer">
+					<a href="/YourRepresentatives/senate/{{senatesss.name}}">Additional Information</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					{{govss.name}}
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Learn More About Your Representative Below!
+					</p>
+				</div>
+				<div class="card-footer">
+					<a href="/YourRepresentatives/gov/{{govss.name}}">Additional Information</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+    body{
+        background-color: f2f2f2;
+    }
+</style>
+<!-- old -->
+        <!-- <h1> These Are Your Representatives! </h1>
    <div class="card">
-  <h5 class="card-header">House of representative</h5>
+  <h5 class="card-header">House of Representatives</h5>
   <div class="card-body">
     <h5 class="card-title">{{horss.name}}</h5>
     <p class="card-text">Click below for additional information!</p>
-    <a href="/YourRepresentatives/hor/{{horss.name}}">Website</a>
+    <a href="/YourRepresentatives/hor/{{horss.name}}">Additional Information</a>
   </div>
 </div>
-
 <div class="card">
   <h5 class="card-header">Senators</h5>
   <div class="card-body">
     <h5 class="card-title">{{senatess.name}} and {{senatesss.name}}</h5>
     <p class="card-text">Click below for additional information!</p>
-    <a href="/YourRepresentatives/senate/{{senatess.name}}">Website</a>
-    <a href="/YourRepresentatives/senate/{{senatesss.name}}">Website</a>
+    <a href="/YourRepresentatives/senate/{{senatess.name}}">Additional Information</a>
+    <a href="/YourRepresentatives/senate/{{senatesss.name}}">Additional Information</a>
   </div>
 </div>
-
 <div class="card">
   <h5 class="card-header">Governor</h5>
   <div class="card-body">
     <h5 class="card-title">{{govss.name}}</h5>
     <p class="card-text">Click below for additional information!</p>
-    <a href="/YourRepresentatives/gov/{{govss.name}}">Website</a>
+    <a href="/YourRepresentatives/gov/{{govss.name}}">Additional Information</a>
   </div>
 </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
-</html>
-
-
-<!-- <html>
-    <head>
-        <title> Welcome! </title>
-        <link rel="stylesheet" type="text/css" href="static/css/style.css?q={{ time }}" />
-    </head>
-    <body>
-        <h1> These are your representatives! </h1>
-        <p>
-        Your house of representative is <a href="/YourRepresentatives/hor/{{horss.name}}">{{horss.name}}</a>
-        </p>
-        <p>
-        Your senators are <a href="/YourRepresentatives/senate/{{senatess.name}}">{{senatess.name}}</a> and <a href="/YourRepresentatives/senate/{{senatesss.name}}">{{senatesss.name}}</a>
-        </p>
-        <p>
-        Your governor is <a href="/YourRepresentatives/gov/{{govss.name}}">{{govss.name}}</a>
-        </p>
     </body>
 </html> -->
