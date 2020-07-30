@@ -73,7 +73,7 @@ def yourRepresentatives():
     else:
         return "hello hello"
 
-@app.route('/YourRepresentatives/<collection>/<politician>' , methods = ["GET", 'POST'])
+@app.route('/yourRepresentatives/<collection>/<politician>' , methods = ["GET", 'POST'])
 def politicianPage(collection, politician):
     # user_district = request.form["district"]
     if collection == "hor":
@@ -102,7 +102,19 @@ def AllRepresentatives():
     gov2 = list(gov1.find({}))
     print(hor2)
     return render_template('AllRepresentatives.html', hor2 = hor2, senate2 = senate2, gov2 = gov2, hor1=hor1, senate1=senate1, gov1 = gov1, time= datetime.now())
-    
+
+@app.route('/ContactUs')
+def AboutUs():
+    return render_template('aboutUs.html')
+@app.route('/MessageSubmitted', methods = ["GET", "POST"])
+def mesSub():
+    if request.method == "POST":
+        user_name = request.form["name"]
+        user_email = request.form["email"]
+        user_message = request.form["msg"]
+        data = mongo.db.data
+        data.insert({'name': user_name, 'email': user_email, 'message': user_message})
+        return render_template("mesSub.html")
 # CONNECT TO DB, ADD DATA
 # @app.route('/add')
 # def add():

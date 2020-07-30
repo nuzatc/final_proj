@@ -21,38 +21,84 @@
             <li class="nav-item">
                 <a class="nav-link" href="/AllRepresentatives">All NY Representatives</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">About Us</a>
-                <a class="dropdown-item" href="#">Contact Us</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/ContactUs">Contact Us</a>
             </li>
             </ul>
         </div>
         </nav>
         <!-- -->
-        <h1>House of Representatives</h1>
-        <div class="reps-list">
-            <ol>
+        <h1>All Congressional Representatives</h1> 
+        <style>
+            h1 {
+                text-align: center;
+            }
+            body {
+                background-color: f2f2f2;
+            }
+        </style>
+<br> 
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          House of Representatives
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
             {% for reps in hor2 %}
-                <li> {{reps.name}}: {{reps.party}} representative of District {{reps.district}}</li>
+                <li> <a href="/yourRepresentatives/hor/{{reps.name}}"> {{reps.name}} </a>: {{reps.party}} Representative of District {{reps.district}} </li>
             {% endfor %}
-            </ol>
-            <h1>Senate </h1>
-            <ol>
+            </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Senators
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
             {% for reps in senate2 %}
-                <li> {{reps.name}}: {{reps.party}} representative of New York State </li>
+                <li> <a href="/yourRepresentatives/senate/{{reps.name}}"> {{reps.name}} </a>: {{reps.party}} Representative of New York State </li>
             {% endfor %}
-            </ol>
-            <h1> Governor </h1>
-            <ol>
+            </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Governor
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <ul>
             {% for reps in gov2 %}
-                <li> {{reps.name}}: {{reps.party}} representative of New York State </li>
+                <li> <a href="/yourRepresentatives/gov/{{reps.name}}"> {{reps.name}} </a>: {{reps.party}} Representative of New York State </li>
             {% endfor %}
-            </ol>
-            <!-- <a href = "/index">Add a new song</a> -->
+            </ul>
+      </div>
+    </div>
+  </div>
+</div>
+			</div>
+		</div>
+	</div>
+
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

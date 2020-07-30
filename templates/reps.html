@@ -22,13 +22,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/AllRepresentatives">All NY Representatives</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                More
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">About Us</a>
-                <a class="dropdown-item" href="#">Contact Us</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/ContactUs">Contact Us</a>
             </li>
             </ul>
         </div>
@@ -37,18 +32,20 @@
         <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="text-center">
-				Find Your Congressional Respresentatives
-			</h3>
+			<h1 class="text-center">
+				"FIND YOUR CONGRESSIONAL REPRESENTATIVES"
+			</h1>
 		</div>
 	</div>
+    <br> <br>
 	<div class="row">
 		<div class="col-md-12">
-			<p class="text-center">
-				Input Your Congressional District Number
-			</p>
+			<h4 class="text-center">
+				New York State is divided into 27 congressional districts. <br> Each district has a unique set of politicians representing them. <br> Input your district to learn more about yours today.
+			</h4>
 		</div>
 	</div>
+    <br>
 	<div class="row">
 		<div class="col-md-12">
 			<p class="text-center">
@@ -83,48 +80,20 @@
                 <option value="26">District 26</option>
                 <option value="27">District 27</option>
             </select>
+            <br> <br>
             <input type="submit">
             </form>
 			</p>
 		</div>
+        </div>
+        <br>
+        <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Map_of_New_York%27s_congressional_districts_from_2013_to_2022.png/600px-Map_of_New_York%27s_congressional_districts_from_2013_to_2022.png" alt="NY Districts" width="350" height="250">
+		</div>
 	</div>
 </div>
-        <!-- -->
-        <h1> Find Your Congressional Respresentatives</h1>
-        <p> Input Your Congressional District Number</p>
-        <form method= "post" action = "/YourRepresentatives" align="center">
-            <label for="district"></label>
-            <select id="district" name="district">
-                <option value="1">District 1</option>
-                <option value="2">District 2</option>
-                <option value="3">District 3</option>
-                <option value="4">District 4</option>
-                <option value="5">District 5</option>
-                <option value="6">District 6</option>
-                <option value="7">District 7</option>
-                <option value="8">District 8</option>
-                <option value="9">District 9</option>
-                <option value="10">District 10</option>
-                <option value="11">District 11</option>
-                <option value="12">District 12</option>
-                <option value="13">District 13</option>
-                <option value="14">District 14</option>
-                <option value="15">District 15</option>
-                <option value="16">District 16</option>
-                <option value="17">District 17</option>
-                <option value="18">District 18</option>
-                <option value="19">District 19</option>
-                <option value="20">District 20</option>
-                <option value="21">District 21</option>
-                <option value="22">District 22</option>
-                <option value="23">District 23</option>
-                <option value="24">District 24</option>
-                <option value="25">District 25</option>
-                <option value="26">District 26</option>
-                <option value="27">District 27</option>
-            </select>
-            <input type="submit">
-            </form>
     </body>
     <style>
         select {
@@ -137,5 +106,10 @@
         body {
             background-color: #f2f2f2
         }
+        img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
     </style>
 </html>

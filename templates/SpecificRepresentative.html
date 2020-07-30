@@ -28,7 +28,7 @@
                 <a class="nav-link" href="/AllRepresentatives">All NY Representatives</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/AllRepresentatives">About Us</a>
+                <a class="nav-link" href="/ContactUs">Contact Us</a>
             </li>
             </ul>
         </div>
@@ -77,13 +77,19 @@
                     <br> <br> <br> <br>
                 <div class="row">
 		<div class="col-md-4">
-                <a href='{{poli.twit}}'class="fa fa-twitter mx-auto d-block"></a>
+                <style>
+                    .col-md-4 {
+                        padding-left: 90px;
+                    }
+                </style>
+
+                <a href='{{poli.twit}}'class="fa fa-twitter mx-auto d-block" style="font-size:45px"></a>
 		</div> 
-		<div class="col-md-4">
-                <a href="{{poli.inst}}" class="fa fa-instagram mx-auto d-block"></a>
+		<div class="col-md-4 align-items-center">
+                <a href="{{poli.inst}}" class="fa fa-instagram mx-auto d-block" style="font-size:45px"></a>
 		</div>
-		<div class="col-md-4">
-			<i class="fa fa-globe" style="font-size:24px"></i>
+		<div class="col-md-4 align-items-center">
+			<i class="fa fa-globe" style="font-size:45px"></i>
 		</div>
         </div>
 	</div>
@@ -95,3 +101,4 @@
 </div>
     </body>
 </html>
+
